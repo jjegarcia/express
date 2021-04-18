@@ -20,6 +20,7 @@ app.use(responseDelay(RESPONSE_DELAY))
  */
 
 // ENDPOINTS
+
 app.post('/user', json(), addUser) //(endpointUrl,handlers)
 app.get('/user', getUser)
 

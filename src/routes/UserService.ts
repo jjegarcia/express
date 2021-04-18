@@ -4,5 +4,4 @@ export interface User {
     profession: string
     uid: string
 }
-
 export const db: User[] = []
