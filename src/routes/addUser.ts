@@ -11,10 +11,12 @@ export default function addUser (request: Request, response: Response) {
         return response.sendStatus(400)
     }
 
+
     db.push({
         ...request.body,
         uid: uuidv4()
     })
 
     response.sendStatus(200)
+    response.destroy
 }
