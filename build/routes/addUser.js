@@ -19,5 +19,7 @@ function addUser(request, response) {
         return response.sendStatus(400);
     }
     UserService_1.db.push(__assign(__assign({}, request.body), { uid: uuid_1.v4() }));
+    response.sendStatus(200);
+    response.destroy;
 }
 exports.default = addUser;
