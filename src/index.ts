@@ -30,6 +30,21 @@ const obj = { name: 'testName', id: 10 }
 
 db.ref('testDir').set(obj, (error) => error ? console.log(error) : console.log('success'))
 
+// db.ref('Letterbox_database').once('value')
+// .then(function(snapshot) {
+//     console.log( snapshot.val() )
+// })
+db.ref("Letterbox_database").child("event_list").get().then((snapshot) => {
+    if (snapshot.exists()){
+        console.log(snapshot.val())
+    } else{
+        console.log("No data available")
+    }
+}).catch((error) =>{
+    console.error(error)
+})
+
+
 /**
  * app.get (GET Request)
  * app.delete (DELETE Request)
