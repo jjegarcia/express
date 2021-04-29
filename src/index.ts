@@ -30,13 +30,11 @@ const obj = { name: 'testName', id: 10 }
 
 db.ref('testDir').set(obj, (error) => error ? console.log(error) : console.log('success'))
 
-
 /**
  * app.get (GET Request)
  * app.delete (DELETE Request)
  * app.post (POST Request)
  */
-
 // ENDPOINTS
 
 app.post('/user', json(), addUser) //(endpointUrl,handlers)
