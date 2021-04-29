@@ -1,4 +1,4 @@
-import { db } from '../index';
+import { db } from "../firebaseConfig";
 
 export default function testWrite() {
     console.log("Writting");
