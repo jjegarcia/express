@@ -22,14 +22,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.db = void 0;
 var express_1 = __importStar(require("express"));
 var cors_1 = __importDefault(require("cors"));
 var env_1 = require("./env");
 var utils_1 = require("./utils");
 var addUser_1 = __importDefault(require("./routes/addUser"));
 var getUser_1 = __importDefault(require("./routes/getUser"));
-var firebase_1 = __importDefault(require("firebase"));
 var dbReadHandlers_1 = __importDefault(require("./dbHandlers/dbReadHandlers"));
 var dbWriteHandlers_1 = __importDefault(require("./dbHandlers/dbWriteHandlers"));
 var app = express_1.default();
@@ -37,18 +35,6 @@ var app = express_1.default();
 app.use(cors_1.default());
 app.use(utils_1.logger());
 app.use(utils_1.responseDelay(env_1.RESPONSE_DELAY));
-var firebaseConfig = {
-    apiKey: "AIzaSyAxQa9ZpYSQO3rvRPEKv60ZfBL78lIvgNM",
-    authDomain: "letterbox-860b7.firebaseapp.com",
-    databaseURL: "https://letterbox-860b7-default-rtdb.firebaseio.com",
-    projectId: "letterbox-860b7",
-    storageBucket: "letterbox-860b7.appspot.com",
-    messagingSenderId: "693213306946",
-    appId: "1:693213306946:web:71fbc5602141f6aa304ddb",
-    measurementId: "G-DSCPJBY3VS"
-};
-firebase_1.default.initializeApp(firebaseConfig);
-exports.db = firebase_1.default.database();
 // ENDPOINTS
 app.post('/user', express_1.json(), addUser_1.default); //(endpointUrl,handlers)
 app.get('/user', getUser_1.default);
