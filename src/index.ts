@@ -7,6 +7,7 @@ import getUser from './routes/getUser'
 import testRead from './dbHandlers/dbReadHandlers'
 import testWrite from './dbHandlers/dbWriteHandlers'
 import testSend from './fcmHandlers/send'
+import testSendNotification from './fcmHandlers/sendNotification'
 
 const app = express()
 
@@ -22,7 +23,8 @@ app.get('/user', getUser)
 
 app.listen({ port: PORT }, () => console.log(`Server running on port ${PORT}`))
 
-testRead()
-testWrite()
+// testRead()
+// testWrite()
 
- testSend()
+//  testSend()
+testSendNotification()
