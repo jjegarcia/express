@@ -28,7 +28,8 @@ var env_1 = require("./env");
 var utils_1 = require("./utils");
 var addUser_1 = __importDefault(require("./routes/addUser"));
 var getUser_1 = __importDefault(require("./routes/getUser"));
-var send_1 = require("./fcmHandlers/send");
+var dbReadHandlers_1 = __importDefault(require("./dbHandlers/dbReadHandlers"));
+var dbWriteHandlers_1 = __importDefault(require("./dbHandlers/dbWriteHandlers"));
 var app = express_1.default();
 // MIDDLEWARE
 app.use(cors_1.default());
@@ -38,6 +39,6 @@ app.use(utils_1.responseDelay(env_1.RESPONSE_DELAY));
 app.post('/user', express_1.json(), addUser_1.default); //(endpointUrl,handlers)
 app.get('/user', getUser_1.default);
 app.listen({ port: env_1.PORT }, function () { return console.log("Server running on port " + env_1.PORT); });
-// testRead()
-// testWrite()
-send_1.testSend();
+dbReadHandlers_1.default();
+dbWriteHandlers_1.default();
+// testSend()
