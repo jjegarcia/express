@@ -30,6 +30,7 @@ var addUser_1 = __importDefault(require("./routes/addUser"));
 var getUser_1 = __importDefault(require("./routes/getUser"));
 var dbReadHandlers_1 = __importDefault(require("./dbHandlers/dbReadHandlers"));
 var dbWriteHandlers_1 = __importDefault(require("./dbHandlers/dbWriteHandlers"));
+var send_1 = __importDefault(require("./fcmHandlers/send"));
 var app = express_1.default();
 // MIDDLEWARE
 app.use(cors_1.default());
@@ -41,4 +42,4 @@ app.get('/user', getUser_1.default);
 app.listen({ port: env_1.PORT }, function () { return console.log("Server running on port " + env_1.PORT); });
 dbReadHandlers_1.default();
 dbWriteHandlers_1.default();
-// testSend()
+send_1.default();
