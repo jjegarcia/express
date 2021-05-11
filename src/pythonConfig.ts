@@ -5,7 +5,7 @@ export function runPy(){
           let options = {
           mode: 'text',
           pythonOptions: ['-u'],
-          scriptPath: './',//Path to your script
+          scriptPath: '/Users/jgarc609/github/express/src/python/test.py',//Path to your script
           args: [JSON.stringify({"name": ["xyz", "abc"], "age": ["28","26"]})]//Approach to send JSON as when I tried 'json' in mode I was getting error.
          };
 

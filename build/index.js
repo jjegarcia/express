@@ -28,7 +28,6 @@ var env_1 = require("./env");
 var utils_1 = require("./utils");
 var addUser_1 = __importDefault(require("./routes/addUser"));
 var getUser_1 = __importDefault(require("./routes/getUser"));
-// import { runMain, runPy } from './pythonConfig'
 //import {spiTest} from './spiExample.tsoo'
 var app = express_1.default();
 // MIDDLEWARE
@@ -44,20 +43,3 @@ app.listen({ port: env_1.PORT }, function () { return console.log("Server runnin
 //  testSend()
 //testSendNotification()
 // runMain()
-var myPythonScriptPath = '/Users/jgarc609/github/express/src/script.py';
-// Use python shell
-// var PythonShell = require('python-shell');
-var PythonShell = require("python-shell").PythonShell;
-var pyshell = new PythonShell(myPythonScriptPath);
-pyshell.on('message', function (message) {
-    // received a message sent from the Python script (a simple "print" statement)
-    console.log(message);
-});
-// end the input stream and allow the process to exit
-pyshell.end(function (err) {
-    if (err) {
-        throw err;
-    }
-    ;
-    console.log('finished');
-});
