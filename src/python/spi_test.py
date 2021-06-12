@@ -6,17 +6,31 @@ spi_device = 0
 
 spi = spidev.SpiDev()
 spi.open(spi_bus, spi_device)
-spi.max_speed_hz = 1000000
+spi.max_speed_hz = 500000
 
 # Send a null byte to check for value
-send_byte = 0x80
-rcv_byte = spi.xfer2([send_byte])
+send_byte = 0b00001111
+print("Sending:"+str(send_byte))
+#rcv_byte = spi.xfer2([send_byte])
 # repeat to check for a response
-rcv_byte = spi.xfer2([send_byte])
-data_recv = rcv_byte[0]
-if (data_recv != 0x80):
-    print ("Unable to communicate with Arduino "+str(data_recv))
-    quit()
+#rcv_byte = spi.xfer2([send_byte])
+#data_recv = rcv_byte[0]
+
+#print("Sent:"+ str(data_recv))
+
+while True:
+	spi.writebytes([send_byte])
+#    readByte=spi.xfer2([send_byte])
+ #   print("Recieved:"+str(readByte))
+	print("Sent:"+str(send_byte))
+    	time.sleep(1)
+
+
+#spi.xfer2(readByte)
+    
+#if (data_recv != 0x80):
+ #   print ("Unable to communicate with Arduino "+str(data_recv))
+  #  quit()
 
 
 ## Data is sent as single bytearray
